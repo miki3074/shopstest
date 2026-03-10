@@ -1,1 +1,0 @@
-import{f as r,b as t,F as a,l as u,o as n,t as l}from"./app-BzHJo_RI.js";const p={__name:"Index",props:{products:Array},setup(o){return(c,s)=>(n(),r(a,null,[s[0]||(s[0]=t("h1",null,"Products",-1)),(n(!0),r(a,null,u(o.products,e=>(n(),r("div",{key:e.id},[t("h3",null,l(e.name),1),t("p",null,l(e.price),1)]))),128))],64))}};export{p as default};
