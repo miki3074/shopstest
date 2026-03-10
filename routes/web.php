@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\FavoriteController;
@@ -21,6 +23,25 @@ use App\Http\Controllers\Seller\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    // URL: /admin/old
+    Route::get('/old', function () { /* ... */ });
+
+    // URL: /admin/products
+    Route::resource('products', AdminController::class);
+
+    // URL: /admin/users
+    Route::get('/users', [UserController::class, 'index'])->name('admin.users');
+
+    // URL: /admin/users/{user}/role
+    // УБРАЛ /admin из пути, так как он уже есть в префиксе группы
+    Route::patch('/users/{user}/role', [UserController::class, 'updateRole'])
+        ->name('admin.users.updateRole');
+});
+
+
 
 Route::get('/shop', [ShopController::class,'index'])->name('shop.index');
 Route::get('/search', [ShopController::class,'search']);
