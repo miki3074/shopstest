@@ -1,0 +1,1 @@
+import{c as e,a as t,F as s,r as u,o as n,t as l}from"./app-v77VhstK.js";const p={__name:"Index",props:{products:Array},setup(o){return(c,a)=>(n(),e(s,null,[a[0]||(a[0]=t("h1",null,"Products",-1)),(n(!0),e(s,null,u(o.products,r=>(n(),e("div",{key:r.id},[t("h3",null,l(r.name),1),t("p",null,l(r.price),1)]))),128))],64))}};export{p as default};
